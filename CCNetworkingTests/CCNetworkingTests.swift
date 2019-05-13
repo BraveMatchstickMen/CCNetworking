@@ -8,6 +8,7 @@
 
 import XCTest
 @testable import CCNetworking
+import Network
 
 class CCNetworkingTests: XCTestCase {
 
@@ -19,16 +20,28 @@ class CCNetworkingTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    // https://itunes.apple.com/search?term=square&country=gb&media=software&limit=10
+    func testGetRequest() {
+        let params = ["term": "square",
+                      "country": "gb",
+                      "media": "software",
+                      "limit": 10] as [String : AnyObject]
+        Network.request(method: "GET", url: "https://itunes.apple.com/search", params: params) { (data, response, error) in
+            XCTAssertNil(error)
+            XCTAssertNotNil(data)
+            XCTAssertNotNil(response)
         }
     }
 
+    func testPostRequest() {
+        let params = ["term": "square",
+                      "country": "gb",
+                      "media": "software",
+                      "limit": 10] as [String : AnyObject]
+        Network.request(method: "POST", url: "https://itunes.apple.com/search", params: params) { (data, response, error) in
+            XCTAssertNil(error)
+            XCTAssertNotNil(data)
+            XCTAssertNotNil(response)
+        }
+    }
 }

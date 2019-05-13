@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DAE85F61226DB78B00FF30A9 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE85F60226DB78B00FF30A9 /* Network.swift */; };
+		DAE85F63226EDCCC00FF30A9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE85F62226EDCCC00FF30A9 /* NetworkManager.swift */; };
 		DAEB36632269A833001BB7A9 /* CCNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAEB36592269A833001BB7A9 /* CCNetworking.framework */; };
 		DAEB36682269A833001BB7A9 /* CCNetworkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB36672269A833001BB7A9 /* CCNetworkingTests.swift */; };
 		DAEB366A2269A833001BB7A9 /* CCNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = DAEB365C2269A833001BB7A9 /* CCNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -23,6 +25,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DAE85F60226DB78B00FF30A9 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		DAE85F62226EDCCC00FF30A9 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		DAEB36592269A833001BB7A9 /* CCNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CCNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAEB365C2269A833001BB7A9 /* CCNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCNetworking.h; sourceTree = "<group>"; };
 		DAEB365D2269A833001BB7A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -73,6 +77,8 @@
 			children = (
 				DAEB365C2269A833001BB7A9 /* CCNetworking.h */,
 				DAEB365D2269A833001BB7A9 /* Info.plist */,
+				DAE85F60226DB78B00FF30A9 /* Network.swift */,
+				DAE85F62226EDCCC00FF30A9 /* NetworkManager.swift */,
 			);
 			path = CCNetworking;
 			sourceTree = "<group>";
@@ -148,6 +154,7 @@
 				TargetAttributes = {
 					DAEB36582269A833001BB7A9 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 					DAEB36612269A833001BB7A9 = {
 						CreatedOnToolsVersion = 10.1;
@@ -194,6 +201,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAE85F63226EDCCC00FF30A9 /* NetworkManager.swift in Sources */,
+				DAE85F61226DB78B00FF30A9 /* Network.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +350,7 @@
 		DAEB366E2269A833001BB7A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -357,6 +367,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.chai.CCNetworking;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -365,6 +376,7 @@
 		DAEB366F2269A833001BB7A9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -389,6 +401,7 @@
 		DAEB36712269A833001BB7A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CCNetworkingTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -406,6 +419,7 @@
 		DAEB36722269A833001BB7A9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CCNetworkingTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

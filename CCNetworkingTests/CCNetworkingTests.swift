@@ -26,7 +26,7 @@ class CCNetworkingTests: XCTestCase {
                       "country": "gb",
                       "media": "software",
                       "limit": 10] as [String : AnyObject]
-        Network.request(method: "GET", url: "https://itunes.apple.com/search", params: params) { (data, response, error) in
+        Network.request(url: "", method: .get, params: params) { (data, response, error) in
             XCTAssertNil(error)
             XCTAssertNotNil(data)
             XCTAssertNotNil(response)
@@ -38,7 +38,7 @@ class CCNetworkingTests: XCTestCase {
                       "country": "gb",
                       "media": "software",
                       "limit": 10] as [String : AnyObject]
-        Network.request(method: "POST", url: "https://itunes.apple.com/search", params: params) { (data, response, error) in
+        Network.request(url: "https://itunes.apple.com/search", method: .post, params: params) { (data, response, error) in
             XCTAssertNil(error)
             XCTAssertNotNil(data)
             XCTAssertNotNil(response)

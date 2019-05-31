@@ -8,13 +8,38 @@
 
 import Foundation
 
+public typealias HTTPRequestCompletion = (Data?, URLResponse?, Error?) -> Void
+
+public enum HTTPMethod: String {
+    case options = "OPTIONS"
+    case get = "GET"
+    case head = "HEAD"
+    case post = "POST"
+    case put = "PUT"
+    case patch = "PATCH"
+    case delete = "DELETE"
+    case trace = "TRACE"
+    case connect = "CONNECT"
+}
+
+public enum ContentType: String {
+    case none = ""
+    case json = "application/json"
+    case formURLEncoded = "application/x-www-form-urlencoded"
+    case multipartFormData = "multipart/form-data; boundary="
+}
+
 public class Network {
-    public static func request(method: String, url: String, params: [String: AnyObject], callback: @escaping (Data?, URLResponse?, Error?) -> Void) {
+    public static func request(url: String,
+                               method: HTTPMethod,
+                               params: [String: AnyObject],
+                               contentType: ContentType = .formURLEncoded,
+                               completion: @escaping HTTPRequestCompletion) {
 
         let session = URLSession(configuration: .default)
 
         var urlPath = url
-        if method == "GET" {
+        if method == .get {
             urlPath += "?" + Network().buildParams(params)
         }
 
@@ -23,15 +48,15 @@ public class Network {
         }
 
         let request = NSMutableURLRequest(url: url)
-        request.httpMethod = method
+        request.httpMethod = method.rawValue
 
-        if method == "POST" {
-            request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        if method == .post {
+            request.addValue(contentType.rawValue, forHTTPHeaderField: "Content-Type")
             request.httpBody = Network().buildParams(params).data(using: .utf8)
         }
 
         let task = session.dataTask(with: request as URLRequest) { (data, response, error) in
-            callback(data, response, error)
+            completion(data, response, error)
         }
 
         task.resume()

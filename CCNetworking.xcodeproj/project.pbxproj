@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		DA0392BD22A1052400D0449F /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0392BC22A1052400D0449F /* Request.swift */; };
+		DA3A9B2522A674C1008C3028 /* RequestEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3A9B2422A674C1008C3028 /* RequestEncoder.swift */; };
 		DAE85F61226DB78B00FF30A9 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE85F60226DB78B00FF30A9 /* Network.swift */; };
-		DAE85F63226EDCCC00FF30A9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE85F62226EDCCC00FF30A9 /* NetworkManager.swift */; };
 		DAEB36632269A833001BB7A9 /* CCNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAEB36592269A833001BB7A9 /* CCNetworking.framework */; };
 		DAEB36682269A833001BB7A9 /* CCNetworkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB36672269A833001BB7A9 /* CCNetworkingTests.swift */; };
 		DAEB366A2269A833001BB7A9 /* CCNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = DAEB365C2269A833001BB7A9 /* CCNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -27,8 +27,8 @@
 
 /* Begin PBXFileReference section */
 		DA0392BC22A1052400D0449F /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		DA3A9B2422A674C1008C3028 /* RequestEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestEncoder.swift; sourceTree = "<group>"; };
 		DAE85F60226DB78B00FF30A9 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
-		DAE85F62226EDCCC00FF30A9 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		DAEB36592269A833001BB7A9 /* CCNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CCNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAEB365C2269A833001BB7A9 /* CCNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCNetworking.h; sourceTree = "<group>"; };
 		DAEB365D2269A833001BB7A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -81,7 +81,7 @@
 				DAEB365D2269A833001BB7A9 /* Info.plist */,
 				DAE85F60226DB78B00FF30A9 /* Network.swift */,
 				DA0392BC22A1052400D0449F /* Request.swift */,
-				DAE85F62226EDCCC00FF30A9 /* NetworkManager.swift */,
+				DA3A9B2422A674C1008C3028 /* RequestEncoder.swift */,
 			);
 			path = CCNetworking;
 			sourceTree = "<group>";
@@ -204,7 +204,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAE85F63226EDCCC00FF30A9 /* NetworkManager.swift in Sources */,
+				DA3A9B2522A674C1008C3028 /* RequestEncoder.swift in Sources */,
 				DA0392BD22A1052400D0449F /* Request.swift in Sources */,
 				DAE85F61226DB78B00FF30A9 /* Network.swift in Sources */,
 			);

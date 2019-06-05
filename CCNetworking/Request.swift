@@ -11,8 +11,9 @@ import Foundation
 public class Request {
     public let url: String
     public let method: HTTPMethod
-    public let parameters: [String: AnyObject]
+    public let parameters: [String: Any]
     public let completion: HTTPRequestCompletion
+    let session = URLSession(configuration: .default)
 
     public init(url: String, method: HTTPMethod, parameters: [String: AnyObject], completion: @escaping HTTPRequestCompletion) {
         self.url = url
@@ -21,31 +22,20 @@ public class Request {
         self.completion = completion
     }
 
-    public func request(contentType: ContentType = .formURLEncoded) {
+    func request(encoder: RequestEncoder = RequestEncoder.default) {
+        do {
+            guard let url = URL(string: url) else { return }
+            var originRequest = URLRequest(url: url)
+            originRequest.httpMethod = method.rawValue
+            let encodedRequest = try encoder.encode(request: originRequest, parameters: parameters, contentType: .formURLEncoded)
 
-        let session = URLSession(configuration: .default)
+            let task = session.dataTask(with: encodedRequest) { (data, response, error) in
+                self.completion(data, response, error)
+            }
 
-        var urlPath = url
-        if method == .get {
-            urlPath += "?" + RequestEncoder.buildParams(parameters)
+            task.resume()
+        } catch {
+
         }
-
-        guard let url = URL(string: urlPath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!) else {
-            preconditionFailure()
-        }
-
-        let request = NSMutableURLRequest(url: url)
-        request.httpMethod = method.rawValue
-
-        if method == .post {
-            request.addValue(contentType.rawValue, forHTTPHeaderField: "Content-Type")
-            request.httpBody = RequestEncoder.buildParams(parameters).data(using: .utf8)
-        }
-
-        let task = session.dataTask(with: request as URLRequest) { (data, response, error) in
-            self.completion(data, response, error)
-        }
-
-        task.resume()
     }
 }
